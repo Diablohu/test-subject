@@ -1,0 +1,66 @@
+
+.scene[data-scene-name="ad"]{
+	overflow: 	auto;
+	-webkit-overflow-scrolling: touch;
+	mask: 		~"linear-gradient(to bottom, transparent, #000 20px, #000 calc(100% - 20px), transparent)";
+	
+	h2, h3, h4{
+		margin-bottom: 	0;
+	}
+	
+	h2{
+		font-weight:lighter;
+		font-size: 	48px;
+		line-height:1.1em;
+		margin-top: 0;
+		letter-spacing: 0.15em;
+		&:first-child{
+			margin-top: 25px;
+		}
+		&+h2{
+			margin-bottom: 	.35em;
+		}
+	}
+	
+	h3, h4{
+		background: hsl(0, 66%, 90%);
+		color: 		@color_main;
+		padding: 	0 .15em;
+		font-weight:lighter;
+		display: 	inline-block;
+	}
+	h3 + br + h4{
+		margin-top: 0;
+	}
+	
+	hr{
+		background: 	hsl(0, 66%, 90%);
+		border-color: 	hsl(0, 66%, 90%);
+		margin-top: 	2em;
+	}
+	
+	p.center{
+		text-align: center;
+	}
+	.nextscene{
+		opacity: 	1;
+		z-index: 	1;
+		position: 	static;
+		left: 		0;
+		transform: 	none;
+		margin-left: auto;
+		margin-right:auto;
+	}
+	
+	p.helper{
+		display: 	block;
+		position: 	relative;
+		text-align: center;
+		img{
+			display: 	inline-block;
+			max-width: 	100%;
+			width: 		auto;
+			height: 	auto;
+		}
+	}
+}
