@@ -46,12 +46,13 @@ gulp.task('job-2015-09-muji-css', function(){
 			autoprefixer({
 				'browsers': [
 					'Android >= 2',
-					'Chrome >= 30',
-					'ie >= 10',
-					'Edge >= 20',
-					'iOS >= 6',
-					'ChromeAndroid >= 30',
-					'ExplorerMobile >= 10'
+					'Chrome >= 25',
+					'Firefox >= 20',
+					'ie >= 11',
+					'Edge >= 12',
+					'iOS >= 5',
+					'ChromeAndroid >= 25',
+					'ExplorerMobile >= 11'
 				]
 			})
 		]))

@@ -142,8 +142,10 @@ scenes.timeline = function($scene){
 					.appendTo($line)
 			
 			// get timeline width, make transition
-				$slide.css('margin-left', 'calc(-' + $slide.outerWidth() + 'px + 100%)')
-				$line.css('margin-left', 'calc(-' + $line.outerWidth() + 'px + 100%)')
+				//$slide.css('margin-left', 'calc(-' + $slide.outerWidth() + 'px + 100%)')
+				//$line.css('margin-left', 'calc(-' + $line.outerWidth() + 'px + 100%)')
+				$slide.css('margin-left', (0 - $slide.outerWidth() + $subscene.width()) + 'px')
+				$line.css('margin-left', (0 - $line.outerWidth() + $subscene.width()) + 'px')
 			
 			return deferred.promise
 		})
@@ -260,7 +262,8 @@ scenes.timeline = function($scene){
 					.appendTo($line)
 			
 			// get timeline width, make transition
-				$line.css('margin-left', 'calc(-' + $line.outerWidth() + 'px + 100%)')
+				//$line.css('margin-left', 'calc(-' + $line.outerWidth() + 'px + 100%)')
+				$line.css('margin-left', (0 - $line.outerWidth() + $china.width()) + 'px')
 
 			return deferred.promise
 		})
