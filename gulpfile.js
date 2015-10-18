@@ -43,7 +43,17 @@ gulp.task('job-2015-09-muji-css', function(){
 		.pipe(less())
 		.pipe(minifyCSS())
 		.pipe(postcss([
-			autoprefixer()
+			autoprefixer({
+				'browsers': [
+					'Android >= 2',
+					'Chrome >= 30',
+					'ie >= 10',
+					'Edge >= 20',
+					'iOS >= 6',
+					'ChromeAndroid >= 30',
+					'ExplorerMobile >= 10'
+				]
+			})
 		]))
 		.pipe(gulp.dest('./assets'))
 })
