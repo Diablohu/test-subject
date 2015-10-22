@@ -1,0 +1,204 @@
+// portrait 6x7
+// landscape 7x6
+
+.scene[data-scene-name="photos"]{
+	@unit_width: 	percentage(1 / 6);
+	@unit_height: 	percentage(1 / 7);
+	@popup_speed: 	0.75s;
+	
+	border-top: 	20px solid transparent;
+	border-bottom: 	20px solid transparent;
+	.unit{
+		width: 		@unit_width;
+		height: 	@unit_height;
+		border: 	3px solid transparent;
+		position: 	absolute;
+		overflow: 	hidden;
+		animation: 	popout @popup_speed cubic-bezier(0.175, 0.885, 0.320, 1.500);
+		animation-play-state: paused;
+		//display: 	none;
+		transform: 	scale(0);
+		span{
+			position: 	absolute;
+			//width: 		153px;
+			//height: 	184px;
+			//width: 		100%;
+			//height: 	100%;
+			//top: 		50%;
+			//left: 		50%;
+			top: 		50%;
+			left: 		50%;
+			width: 		0;
+			height: 	100%;
+			padding-right: percentage(184 / 153 );
+			transform: 	translateX(-50%) translateY(-50%);
+			background: no-repeat 50% (100% - 61.8%) / cover;
+			//background: url(../assets/images/scene-photos.jpg) no-repeat 0 0;
+			//background-size: auto 700%;
+		}
+
+		.loopY(@n, @i: 2) when (@i =< @n) {
+			&.y@{i}{
+				top: 	(@unit_height * (@i - 1));
+				//span{
+				//	background-position-y: 	(percentage(1 / 6) * (@i - 1));
+				//}
+			}
+			.loopY(@n, (@i + 1));
+		}
+		.loopY(7);
+
+		.loopX(@n, @i: 2) when (@i =< @n) {
+			&.x@{i}{
+				left: 	(@unit_width * (@i - 1));
+				//span{
+				//	background-position-x: 	(percentage(1 / 5) * (@i - 1));
+				//}
+			}
+			.loopX(@n, (@i + 1));
+		}
+		.loopX(6);
+		
+		&.y2.x4, &.y6.x2{
+			width: 		(@unit_width * 2);
+			height: 	(@unit_height * 2);
+			//span{
+			//	background-size: auto 350%;
+			//}
+		}
+		
+		//&.y2.x4 span{
+		//	background-position-x: 	73%;
+		//	background-position-y: 	20%;
+		//}
+		
+		//&.y6.x2 span{
+		//	background-position-y: 	100%;
+		//}
+		
+		
+		
+		
+		//@media all and (min-aspect-ratio: 2 / 3){
+		//	span{
+		//		background-size: 600% auto;
+		//	}
+		//	&.y2.x4 span{
+		//		background-position-x: 	79%;
+		//		background-position-y: 	20%;
+		//	}
+		//}
+
+		@media screen and (orientation:landscape) {
+			width: 	(percentage(1 / 9));
+			height: (percentage(1 / 4));
+			
+			&.y1, &.y4, &.y5{
+				&.x1{
+					top: 	0;
+				}
+				&.x2{
+					top: 	(percentage(1 / 4));
+				}
+				&.x3{
+					top: 	(percentage(1 / 4) * 2);
+				}
+				&.x4{
+					top: 	(percentage(1 / 4) * 3);
+				}
+				&.x5, &.x6{
+					top: 	-10000%;
+					left: 	-10000%;
+				}
+			}
+			
+			&.y1{
+				left: 	(percentage(1 / 9) * 6);
+			}
+			
+			&.y2{
+				top: 	0;
+			}
+			
+			&.y3{
+				top: 	(percentage(1 / 4));
+			}
+			
+			&.y4{
+				left: 	(percentage(1 / 9) * 7);
+			}
+			
+			&.y5{
+				left: 	(percentage(1 / 9) * 8);
+			}
+			
+			&.y6{
+				top: 	(percentage(1 / 4) * 2);
+			}
+			
+			&.y7{
+				top: 	(percentage(1 / 4) * 3);
+			}
+		
+			&.y2.x4, &.y6.x2{
+				width: 		(percentage(1 / 9) * 2);
+				height: 	(percentage(1 / 4) * 2);
+				//span{
+				//	background-size: auto 350%;
+				//}
+			}
+			
+			&:not(.y1):not(.y4):not(.y5){
+				.loopLandscapeX(@n, @i: 2) when (@i =< @n) {
+					&.x@{i}{
+						left: 	(percentage(1 / 9) * (@i - 1));
+						//span{
+						//	background-position-x: 	(percentage(1 / 5) * (@i - 1));
+						//}
+					}
+					.loopLandscapeX(@n, (@i + 1));
+				}
+				.loopLandscapeX(6);
+			}
+		
+			//&.y2.x4 span{
+			//	background-position-x: 	79% !important;
+			//	background-position-y: 	20%;
+			//}
+		}
+			
+		//@media all and (orientation:landscape) and (max-aspect-ratio: 4 / 3){
+		//	span{
+		//		background-size: auto 700%;
+		//	}
+		//}
+
+	}
+	
+	&.animating{
+		.unit{
+			//display: 	block;
+			//transform: 	scale(1);
+			animation-play-state: running;
+			animation-fill-mode: forwards;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+@keyframes popout {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

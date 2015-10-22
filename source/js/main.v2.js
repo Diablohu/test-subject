@@ -72,7 +72,7 @@ window.onload = (function(){
 				$main.removeClass('is-scrollhint')
 				
 				scene_el_cur = scene_els.eq(scenenumber-1)
-				scene_el_cur.css('transform', '')
+				$body.trigger('scenechangecancel')
 				
 				// run specific scene function
 					if( scenes[ scene_name[scenenumber-1] ] )
@@ -80,18 +80,25 @@ window.onload = (function(){
 			},
 			'sceneprev': function(){
 				var cur = parseInt($main.attr('data-scene') || 0)
-				if( cur > 0 )
+				if( cur > 1 )
 					$body.trigger('scenechange', [cur - 1])
+				else
+					$body.trigger('scenechangecancel')
 			},
 			'scenenext': function(){
 				var cur = parseInt($main.attr('data-scene') || 0)
 				if( cur < scene_name.length )
 					$body.trigger('scenechange', [cur + 1])
+				else
+					$body.trigger('scenechangecancel')
 			},
 			'scenefinish': function(){
 				$nextscene.trigger('blur')
 				if( $main.attr('data-scene') < scene_name.length )
 					$body.addClass('is-ready-nextscene')
+			},
+			'scenechangecancel': function(){
+				scene_el_cur.css('transform', '')
 			}
 		})
 
@@ -117,8 +124,11 @@ window.onload = (function(){
 					$body.trigger('sceneprev')
 				else if( e.gesture.deltaX < -50)
 					$body.trigger('scenenext')
-				else
-					scene_el_cur.css('transform', '')
+				else{
+					setTimeout(function(){
+						$body.trigger('scenechangecancel')
+					},10)
+				}
 			})
 	}, 1000)
 })
