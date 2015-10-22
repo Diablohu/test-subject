@@ -85,7 +85,7 @@ window.onload = (function(){
 			},
 			'scenenext': function(){
 				var cur = parseInt($main.attr('data-scene') || 0)
-				if( cur < scene_name.length - 1 )
+				if( cur < scene_name.length )
 					$body.trigger('scenechange', [cur + 1])
 			},
 			'scenefinish': function(){
@@ -101,12 +101,16 @@ window.onload = (function(){
 	
 		// event listeners (hammer.js)
 			$body.hammer().bind('panmove', function(e){
+				if( !$body.hasClass('is-ready-nextscene') )
+					return 
 				/*$main.css('left', 'calc(50% '
 						+ (e.gesture.deltaX >=0 ? '+' : '-')
 						+ ' '
 						+ Math.abs(e.gesture.deltaX) + 'px)')*/
 				scene_el_cur.css('transform', 'translateX('+e.gesture.deltaX+'px)')
 			}).bind('panend pancancel', function(e){
+				if( !$body.hasClass('is-ready-nextscene') )
+					return 
 				console.log('panend ' + e.gesture.deltaX)
 				//$main.css('left', '50%')
 				if( e.gesture.deltaX > 50)
