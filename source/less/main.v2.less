@@ -165,28 +165,6 @@ main{
 		text-align: left;
 	}
 	
-	.nextscene{
-		display: 	block;
-		appearance: none;
-		position: 	absolute;
-		opacity: 	0;
-		z-index: 	-1;
-		.transition(opacity);
-		transition-delay: @duration_loaded;
-		border: 	1px solid hsl(348, 33%, 54%);
-		border-radius: 2px;
-		font-size: 	16px;
-		line-height:35px;
-		padding: 	0 1em;
-		bottom: 	-20px;
-		left: 		50%;
-		transform: 	translateX(-50%);
-		background: transparent;
-		&:hover{
-			background: hsl(348, 43%, 44%);
-		}
-	}
-	
 	&[data-scene]{
 		.indicators{
 			z-index: 	3;
@@ -231,6 +209,27 @@ main{
 .link{
 	color: 		darken(@color_accent, 35%);
 }
+	
+.nextscene{
+	display: 	none;
+	appearance: none;
+	position: 	absolute;
+	opacity: 	0;
+	z-index: 	-1;
+	//.transition(opacity);
+	//transition-delay: @duration_loaded;
+	border: 	1px solid hsl(348, 33%, 54%);
+	border-radius: 2px;
+	font-size: 	16px;
+	line-height:35px;
+	padding: 	0 1em;
+	bottom: 	-20px;
+	right: 		0;
+	background: transparent;
+	&:hover{
+		background: hsl(348, 43%, 44%);
+	}
+}
 
 
 
@@ -253,8 +252,7 @@ main{
 .is-ready-nextscene{
 	main{
 		.nextscene{
-			opacity: 	1;
-			z-index: 	5;
+			display: 	block;
 		}
 		.indicators{
 			z-index: 	-1;

@@ -49,7 +49,7 @@ scenes.photos = function($scene){
 			var deferred = Q.defer()
 			setTimeout(function(){
 				deferred.resolve()
-			}, 1250)
+			}, 1250 + popup_speed * 1000)
 			return deferred.promise
 		})
 		
