@@ -28,13 +28,13 @@ scenes.recruit = function($scene){
 		promise_chain = promise_chain
 		
 		.then(function(){
-			return Q.sleep(1000, function(){
+			return Q.sleep(1250, function(){
 				$('<h3 class="animated fadeIn"/>').html('我们为你准备了广阔的晋升平台').appendTo($scene)
 			})
 		})
 		
 		.then(function(){
-			return Q.sleep(500, function(){
+			return Q.sleep(1000, function(){
 				var imgcontainer = $('<p class="route animated fadeIn"/>')
 						.append($('<img src="assets/images/recruit-route.png"/>'))
 						.appendTo($scene)
