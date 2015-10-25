@@ -24,26 +24,15 @@ scenes.timeline = function($scene){
 						.append($('<h2>无印良品的历史</h2>'))
 						.appendTo($scene)
 				,$container = $('<div class="line-container"/>')
-						.appendTo($subscene)
+						.on('scroll', function(e){
+							$debug.html( $container.scrollLeft() )
+						}).appendTo($subscene)
 				,$line = $('<div class="line"/>').appendTo($container)
 				,deferred = Q.defer()
 				,$debug = $('<h4/>').css({
 							'top':		'50px',
 							'position':	'absolute'
 						}).appendTo($subscene)
-
-			//registerOptimizedScroll("scroll", "optimizedScroll", $container[0])
-			//$container.on('optimizedScroll', function(e){
-			//	console.log( $container.scrollLeft() )
-			//	$debug.html( $container.scrollLeft() )
-			//})
-			function containerScrolling(){
-				requestAnimationFrame(function(){
-					$debug.html( $container.scrollLeft() )
-					containerScrolling()
-				})
-			}
-			containerScrolling()
 			
 			// timeline
 				timelineEl(1980, null, '无印良品的起源', '经西友集团旗下的通路推出自创品牌“无印良品”，最初有家庭用品9项、食品31项。')
