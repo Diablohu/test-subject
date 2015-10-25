@@ -5,6 +5,7 @@ var $html, $body, $main
 	,scene_els = []
 	,scenes = {}
 	,scene_el_cur
+	,gPan = true
 
 
 
@@ -109,7 +110,7 @@ window.onload = (function(){
 	
 		// event listeners (hammer.js)
 			$body.hammer().bind('panmove', function(e){
-				if( !$body.hasClass('is-ready-nextscene') )
+				if( !gPan || !$body.hasClass('is-ready-nextscene') )
 					return 
 				/*$main.css('left', 'calc(50% '
 						+ (e.gesture.deltaX >=0 ? '+' : '-')
@@ -117,7 +118,7 @@ window.onload = (function(){
 						+ Math.abs(e.gesture.deltaX) + 'px)')*/
 				scene_el_cur.css('transform', 'translateX('+e.gesture.deltaX+'px)')
 			}).bind('panend pancancel', function(e){
-				if( !$body.hasClass('is-ready-nextscene') )
+				if( !gPan || !$body.hasClass('is-ready-nextscene') )
 					return 
 				console.log('panend ' + e.gesture.deltaX)
 				//$main.css('left', '50%')

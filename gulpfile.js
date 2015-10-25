@@ -40,7 +40,8 @@ gulp.task('job-2015-09-muji_v2-js', function(){
 			//'./source/js/scenes/ad.js',
 			'./source/js/scenes/staff.js',
 			'./source/js/scenes/summary.js',
-			'./source/js/scenes/recruit.js'
+			'./source/js/scenes/recruit.js',
+			'./source/js/scenes/end.js'
 		])
 		.pipe(concat('js.v2.js'))
 		.pipe(babel({

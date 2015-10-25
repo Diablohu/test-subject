@@ -67,9 +67,10 @@ scenes.summary = function($scene){
 		})
 		
 		.then(function(){
-			return $('<p class="final animated fadeInUp">未来十年，期待与你共同走过。</p>').appendTo($scene)
+			return $('<p class="final animated fadeInUp">储备干部 全国招聘</p>').appendTo($scene)
 		})
-
+		
+		/*
 		.then(function(){
 			var deferred = Q.defer()
 			setTimeout(function(){
@@ -77,7 +78,6 @@ scenes.summary = function($scene){
 			}, 1000)
 			return deferred.promise
 		})
-		
 		.then(function(){
 			return $('<p class="center animated fadeInUp"/>')
 				.append(
@@ -89,6 +89,7 @@ scenes.summary = function($scene){
 					})
 				).appendTo($scene)
 		})
+		*/
 
 		.then(function(){
 			var deferred = Q.defer()
