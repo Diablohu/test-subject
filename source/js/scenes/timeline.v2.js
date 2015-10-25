@@ -14,7 +14,7 @@ scenes.timeline = function($scene){
 				return el
 			}
 		,$subscene = $('<div class="timeline timeline-world"/>')
-					.append($('<h2>无印良品的历史</h2>'))
+					.append($('<h2>世界的无印良品</h2>'))
 					.appendTo($scene)
 
 	// 开始异步函数链
