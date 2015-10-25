@@ -37,20 +37,18 @@ scenes.photos = function($scene){
 		})
 
 		.then(function(){
-			var deferred = Q.defer()
-			setTimeout(function(){
-				$scene.addClass('animating')
-				deferred.resolve()
-			}, 100)
-			return deferred.promise
+			return Q.sleep(
+				500,
+				function(){
+					$scene.addClass('animating')
+				}
+			)
 		})
 
 		.then(function(){
-			var deferred = Q.defer()
-			setTimeout(function(){
-				deferred.resolve()
-			}, 1250 + popup_speed * 1000)
-			return deferred.promise
+			return Q.sleep(
+				1250 + popup_speed * 1000
+			)
 		})
 		
 		.done(function(){

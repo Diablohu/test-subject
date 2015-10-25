@@ -1,0 +1,353 @@
+@color_line: 	hsl(348, 65%, 75%);
+@color_line2: 	hsl(348, 33%, 54%);
+
+.scene[data-scene-name="timeline"]{
+	
+	.timeline{
+		.transition(opacity, .5s);
+		position: 	relative;
+		width: 		100%;
+		height: 	100%;
+	}
+
+	h2{
+		margin: 	0;
+		position: 	relative;
+		z-index: 	5;
+	}
+	
+	.line-container{
+		position: 	relative;
+		width: 		100%;
+		height: 	100%;
+		overflow: 	auto;
+		display: 	flex;
+		flex-flow: 	column nowrap;
+		justify-content: center;
+		mask: 		linear-gradient(to right, transparent, #000 20px, #000 ~"calc(100% - 20px)", transparent);
+	}
+	
+	.line{
+		z-index: 	3;
+		padding: 	0 0 0 60px;
+		height: 	( 120px + 120px );
+		display: 	flex;
+		margin: 	0 0 0 60px;
+		
+		&:before, &:after, dl:after{
+			content: 	'';
+			position: 	absolute;
+			background: @color_line;
+			left: 		0;
+		}
+		
+		&:before{
+			top: 		~"calc(50% - 10px)";
+			width: 		20px;
+			height: 	20px;
+			border-radius:50%;
+			left: 		20px;
+		}
+		
+		&:after, dl:after{
+			height: 	8px;
+		}
+		
+		&:after{
+			top: 		~"calc(50% - 4px)";
+			width: 		100px;
+			left: 		30px;
+		}
+
+		dl{
+			flex: 		none;
+			width: 		250px;
+			height: 	120px;
+			margin: 	0;
+			padding: 	15px 20px 0 18px;
+			position: 	relative;
+			font-size: 	13px;
+			z-index: 	5;
+			//text-shadow:1px 1px 0 hsl(348, 100%, 25%);
+			dt{
+				padding: 	0;
+				margin: 	0;
+				line-height:30px;
+				strong{
+					width: 		50px;
+					font-size: 	18px;
+					display: 	inline-block;
+				}
+				em{
+					font-size: 	15px;
+					font-style: normal;
+					padding-right: .5em;
+					display: 	inline-block;
+				}
+			}
+			dd{
+				margin: 	0;
+				padding: 	0;
+				line-height:1.5;
+			}
+			&:before{
+				content: 	'';
+				position: 	absolute;
+				bottom: 	0;
+				left: 		0;
+				width: 		1px;
+				height: 	100%;
+				background: @color_line2;
+			}
+			&:after{
+				bottom: 	-4px;
+				width: 		100%;
+			}
+			&.important{
+				dt{
+					strong{
+						font-size: 	36px;
+						width: 		90px;
+						margin-top: -20px;
+					}
+				}
+			}
+			
+			&.down{
+				transform: 	translateY(100%);
+				padding-top:30px;
+				&:after{
+					bottom: 	auto;
+					top: 		-4px;
+				}
+			}
+			
+			&.up{
+				padding-top: 0;
+			}
+			
+			&.up2{
+				height: 	220px;
+				margin-top: -100px;
+			}
+			
+			&.long{
+				width: 		350px;
+			}
+			
+			&.long2{
+				width: 		350px;
+			}
+			
+			&.up + .down{
+				margin-left: 	-210px;
+			}
+			&.up.long + .down{
+				margin-left: 	-310px;
+			}
+			&.up2 + .up{
+				margin-left: 	-210px;
+			}
+			&.up2.long + .up{
+				margin-left: 	-310px;
+			}
+			&.down + .up{
+				margin-left: 	-40px;
+			}
+			&.down + .down + .up{
+				margin-left: 	-210px;
+			}
+			&.down + .down + .up2 + .up + .down{
+				margin-left: 	-60px;
+			}
+			&.down + .down + .up2 + .up + .down + .up{
+				margin-left: 	-100px;
+			}
+		}
+	}
+	
+	.slide{
+		z-index: 	2;
+		top: 		0;
+		height: 	~"calc(100% - 380px)";
+		opacity: 	.9;
+		/*
+		.image{
+			display: 	inline-block;
+			position: 	relative;
+			height: 	100%;
+			flex: 		none;
+			span{
+				display: 	block;
+				width: 		0;
+				position: 	relative;
+				height: 	100%;
+				background: no-repeat 50% 50% / contain;
+			}
+			&+.image{
+				margin-left: 	20px;
+			}
+			&.image-1 span{
+				padding-right: percentage( 232 / 331 );
+			}
+			&.image-2 span{
+				padding-right: percentage( 315 / 409 );
+			}
+			&.image-3 span{
+				padding-right: percentage( 669 / 235 );
+			}
+			&.image-4 span{
+				padding-right: percentage( 331 / 232 );
+			}
+			&.image-5 span{
+				padding-right: percentage( 236 / 229 );
+			}
+			&.image-6 span{
+				padding-right: percentage( 301 / 238 );
+			}
+		}
+		*/
+		img{
+			display: 	inline-block;
+			position: 	relative;
+			width: 		auto;
+			height: 	auto;
+			min-height: 100%;
+			max-height: 100%;
+			&+img{
+				margin-left: 	20px;
+			}
+		}
+	}
+	
+	//.timeline-world{
+	//	.line, .slide{
+	//		transition-duration: 12.5s;
+	//	}
+	//}
+	
+	.timeline-china{
+		opacity: 	0;
+		h2, h3{
+			.transition(opacity, .5s);
+		}
+		h3{
+			opacity: 	0;
+			position: 	absolute;
+			top: 		50%;
+			left: 		50%;
+			color: 		@color_main;
+			text-align: center;
+			width: 		100%;
+			font-size: 	30px;
+			transform: 	translateX(-50%) translateY(-50%);
+			z-index: 	-1;
+			margin-top: -100px;
+		}
+		.map{
+			position: 	absolute;
+			top: 		50%;
+			left: 		50%;
+			width: 		~"calc(100% + 100px)";
+			height: 	0;
+			padding: 	0 0 100% 0;
+			transform: 	translateX(-50%) translateY(-50%);
+			background: url(../assets/images/map-china.png) no-repeat 50% 50% / contain;
+			z-index: 	1;
+			margin-top: -100px;
+			.node{
+				position: 	absolute;
+				top: 		0;
+				right: 		0;
+				bottom: 	0;
+				left: 		0;
+				background: no-repeat 50% 50% / contain;
+				//animation-duration: .2s;
+				.loop(@n, @i: 1) when (@i =< @n) {
+					&.node-@{i}{
+						background-image: 	~"url(../assets/images/map-china-@{i}.png)";
+						animation-delay: 	( (@i - 1) * 20s / 9 );
+					}
+					.loop(@n, (@i + 1));
+				}
+				.loop(10);
+			}
+		}
+		&.is-show{
+			opacity: 	1;
+		}
+		&.is-onlymap{
+			h2{
+				opacity: 	0;
+			}
+			h3{
+				opacity: 	1;
+				z-index: 	2;
+			}
+		}
+		
+		.line{
+			height: 	30%;
+			min-height: ~"calc( 200px + 7.5% )";
+			bottom: 	-7.5%;
+			transition-duration: 20s;
+			background: fade(@color_main, 50%);
+			margin-left: -7.5%;
+			&:before{
+				top: 		-10px;
+			}
+			&:after{
+				top: 		-4px;
+			}
+			dl{
+				transform: 	none !important;
+			}
+		}
+	}
+	
+	
+	
+	
+	
+	@media screen and (max-height: 500px) {
+		.line{
+			height: 	120px;
+			transition-duration: 	15s;
+			&:before{
+				top: 	-10px;
+			}
+			&:after{
+				top: 	-4px;
+			}
+			dl{
+				&.up, &.up2, &.down{
+					transform: 	translateY(0);
+					padding-top:30px;
+					height: 	120px;
+					margin: 	0;
+					&:after{
+						bottom: 	auto;
+						top: 		-4px;
+					}
+					&.long2{
+						width: 		450px;
+					}
+					&+dl{
+						margin-left: 	0 !important;
+					}
+				}
+			}
+		}
+	
+		.slide{
+			top: 		30px;
+			height: 	~"calc(100% - 210px)";
+		}
+	
+		.timeline-world{
+			.line, .slide{
+				transition-duration: 17.5s;
+			}
+		}
+	}
+}

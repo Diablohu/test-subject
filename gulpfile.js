@@ -36,9 +36,11 @@ gulp.task('job-2015-09-muji_v2-js', function(){
 			'./source/js/main.v2.js',
 
 			'./source/js/scenes/photos.v2.js',
-			'./source/js/scenes/timeline.js',
-			'./source/js/scenes/ad.js',
-			'./source/js/scenes/summary.js'
+			'./source/js/scenes/timeline.v2.js',
+			//'./source/js/scenes/ad.js',
+			'./source/js/scenes/staff.js',
+			'./source/js/scenes/summary.js',
+			'./source/js/scenes/recruit.js'
 		])
 		.pipe(concat('js.v2.js'))
 		.pipe(babel({
@@ -47,7 +49,7 @@ gulp.task('job-2015-09-muji_v2-js', function(){
 			'compact':			true,
 			'ast':				false
 		}))
-		.pipe(uglify())
+		//.pipe(uglify())
 		.pipe(gulp.dest('./assets'))
 })
 
