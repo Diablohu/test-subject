@@ -32,7 +32,7 @@ scenes.timeline = function($scene){
 
 			function containerScrolling(){
 				requestAnimationFrame(function(){
-					if( $container[0].scrollWidth - $container.width() <= $container.scrollLeft() + 100 ){
+					if( $container[0].scrollWidth - $container.width() <= $container.scrollLeft() + 50 ){
 						deferred.resolve()
 					}
 					containerScrolling()
@@ -127,7 +127,7 @@ scenes.timeline2 = function($scene){
 
 			function containerScrolling(){
 				requestAnimationFrame(function(){
-					if( $container[0].scrollWidth - $container.width() <= $container.scrollLeft() + 100 ){
+					if( $container[0].scrollWidth - $container.width() <= $container.scrollLeft() + 50 ){
 						deferred.resolve()
 					}
 					containerScrolling()

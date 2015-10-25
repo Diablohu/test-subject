@@ -106,5 +106,30 @@ window.onload = (function(){
 	setTimeout(function(){
 		$body.addClass('is-loaded')
 		$body.trigger('scenenext')
+	
+		// event listeners (hammer.js)
+			$body.hammer().bind('panmove', function(e){
+				if( !$body.hasClass('is-ready-nextscene') )
+					return 
+				/*$main.css('left', 'calc(50% '
+						+ (e.gesture.deltaX >=0 ? '+' : '-')
+						+ ' '
+						+ Math.abs(e.gesture.deltaX) + 'px)')*/
+				scene_el_cur.css('transform', 'translateX('+e.gesture.deltaX+'px)')
+			}).bind('panend pancancel', function(e){
+				if( !$body.hasClass('is-ready-nextscene') )
+					return 
+				console.log('panend ' + e.gesture.deltaX)
+				//$main.css('left', '50%')
+				if( e.gesture.deltaX > 50)
+					$body.trigger('sceneprev')
+				else if( e.gesture.deltaX < -50)
+					$body.trigger('scenenext')
+				else{
+					setTimeout(function(){
+						$body.trigger('scenechangecancel')
+					},10)
+				}
+			})
 	}, 1000)
 })
