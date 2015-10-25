@@ -1,7 +1,7 @@
 @color_line: 	hsl(348, 65%, 75%);
 @color_line2: 	hsl(348, 33%, 54%);
 
-.scene[data-scene-name="timeline"]{
+.scene[data-scene-class="timeline"]{
 	
 	.timeline{
 		.transition(opacity, .5s);
@@ -25,14 +25,16 @@
 		flex-flow: 	column nowrap;
 		justify-content: center;
 		mask: 		linear-gradient(to right, transparent, #000 20px, #000 ~"calc(100% - 20px)", transparent);
+		z-index: 	10;
 	}
 	
 	.line{
 		z-index: 	3;
-		padding: 	0 0 0 60px;
+		padding: 	0 0 0 40px;
 		height: 	( 120px + 120px );
 		display: 	flex;
-		margin: 	0 0 0 60px;
+		margin: 	0 0 0 40px;
+		position: 	relative;
 		
 		&:before, &:after, dl:after{
 			content: 	'';
@@ -46,7 +48,7 @@
 			width: 		20px;
 			height: 	20px;
 			border-radius:50%;
-			left: 		20px;
+			left: 		0;
 		}
 		
 		&:after, dl:after{
@@ -56,7 +58,7 @@
 		&:after{
 			top: 		~"calc(50% - 4px)";
 			width: 		100px;
-			left: 		30px;
+			left: 		10px;
 		}
 
 		dl{
@@ -227,34 +229,14 @@
 	//}
 	
 	.timeline-china{
-		opacity: 	0;
-		h2, h3{
-			.transition(opacity, .5s);
-		}
-		h3{
-			opacity: 	0;
-			position: 	absolute;
-			top: 		50%;
-			left: 		50%;
-			color: 		@color_main;
-			text-align: center;
-			width: 		100%;
-			font-size: 	30px;
-			transform: 	translateX(-50%) translateY(-50%);
-			z-index: 	-1;
-			margin-top: -100px;
-		}
 		.map{
 			position: 	absolute;
-			top: 		50%;
-			left: 		50%;
-			width: 		~"calc(100% + 100px)";
-			height: 	0;
-			padding: 	0 0 100% 0;
-			transform: 	translateX(-50%) translateY(-50%);
-			background: url(../assets/images/map-china.png) no-repeat 50% 50% / contain;
+			top: 		0;
+			left: 		0;
+			width: 		100%;
+			height: 	100%;
+			background: url(../assets/images/map-china-ebebeb.png) no-repeat 50% 50% / contain;
 			z-index: 	1;
-			margin-top: -100px;
 			.node{
 				position: 	absolute;
 				top: 		0;
@@ -262,7 +244,6 @@
 				bottom: 	0;
 				left: 		0;
 				background: no-repeat 50% 50% / contain;
-				//animation-duration: .2s;
 				.loop(@n, @i: 1) when (@i =< @n) {
 					&.node-@{i}{
 						background-image: 	~"url(../assets/images/map-china-@{i}.png)";
@@ -273,46 +254,14 @@
 				.loop(10);
 			}
 		}
-		&.is-show{
-			opacity: 	1;
-		}
-		&.is-onlymap{
-			h2{
-				opacity: 	0;
-			}
-			h3{
-				opacity: 	1;
-				z-index: 	2;
-			}
-		}
-		
-		.line{
-			height: 	30%;
-			min-height: ~"calc( 200px + 7.5% )";
-			bottom: 	-7.5%;
-			transition-duration: 20s;
-			background: fade(@color_main, 50%);
-			margin-left: -7.5%;
-			&:before{
-				top: 		-10px;
-			}
-			&:after{
-				top: 		-4px;
-			}
-			dl{
-				transform: 	none !important;
-			}
-		}
 	}
-	
 	
 	
 	
 	
 	@media screen and (max-height: 500px) {
 		.line{
-			height: 	120px;
-			transition-duration: 	15s;
+			height: 	180px;
 			&:before{
 				top: 	-10px;
 			}
@@ -336,17 +285,6 @@
 						margin-left: 	0 !important;
 					}
 				}
-			}
-		}
-	
-		.slide{
-			top: 		30px;
-			height: 	~"calc(100% - 210px)";
-		}
-	
-		.timeline-world{
-			.line, .slide{
-				transition-duration: 17.5s;
 			}
 		}
 	}
