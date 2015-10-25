@@ -201,10 +201,6 @@ scenes.timeline2 = function($scene){
 				timelineEl(2015, '5月', '无印良品中国10周年', 'MUJI passport上线<br /><br />通过这款APP，消费者可以累计积分，感受到全新的购物体验。')
 					.addClass('up important long')
 					.appendTo($line)
-			
-			// get timeline width, make transition
-				//$line.css('margin-left', 'calc(-' + $line.outerWidth() + 'px + 100%)')
-				$line.css('margin-left', (0 - $line.outerWidth() + $china.width()) + 'px')
 
 			return deferred.promise
 		})

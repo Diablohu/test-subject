@@ -3,7 +3,7 @@
 
 scenes.summary = function($scene){
 	var promise_chain 	= Q.fcall(function(){})
-		,$title = $('<h2><span>梦，</span></h2>').appendTo($scene)
+		,$title = $('<h2><span class="animated fadeInUp">梦，</span></h2>').appendTo($scene)
 		,$title2
 
 	// 开始异步函数链
