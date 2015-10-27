@@ -15,9 +15,7 @@ function _timeline_init($container, $line, deferred){
 	}
 	containerScrolling()
 	*/
-	
-	var x
-	
+		
 	var iScroll = new IScroll($container[0], {
 		scrollX:	true,
 		scrollY:	false,
@@ -25,19 +23,19 @@ function _timeline_init($container, $line, deferred){
 		probeType:	3
 	})
 	iScroll.on('scroll', function(){
-		x = this.x
-	})
-	
-	$container.hammer().bind('panmove', function(e){
-		if( e.gesture.deltaX < 0
-			&& 0 - x >= $line.width() - $container.width() ){
+		if( this.distX < 0
+			&& 0 - this.x >= $line.width() - $container.width() ){
 			deferred.resolve()
+			gPan = true
 			//console.log($container[0].scrollWidth, $container.width())
-		}else if($body.hasClass('is-ready-nextscene') && e.gesture.deltaX > 0 && x > 0){
+		}else if($body.hasClass('is-ready-nextscene') && this.distX > 0 && this.x >= 0){
+			gPan = true
 		}else{
 			gPan = false
 		}
-	}).bind('panend pancancel', function(e){
+	})
+	
+	$container.hammer().bind('panend pancancel', function(e){
 		setTimeout(function(){
 			gPan = true
 		}, 10)

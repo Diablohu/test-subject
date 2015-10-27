@@ -101,6 +101,10 @@ window.onload = (function(){
 			},
 			'scenechangecancel': function(){
 				scene_el_cur.css('transform', '')
+				gPan = true
+				setTimeout(function(){
+					gPan = true
+				}, 1000)
 			}
 		})
 
