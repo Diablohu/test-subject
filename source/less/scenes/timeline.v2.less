@@ -226,43 +226,6 @@
 		}
 	}
 	
-	//.timeline-world{
-	//	.line, .slide{
-	//		transition-duration: 12.5s;
-	//	}
-	//}
-	
-	.timeline-china{
-		.map{
-			position: 	absolute;
-			top: 		0;
-			left: 		0;
-			width: 		100%;
-			height: 	100%;
-			background: url(../assets/images/map-china-ebebeb.png) no-repeat 50% 50% / contain;
-			z-index: 	1;
-			.node{
-				position: 	absolute;
-				top: 		0;
-				right: 		0;
-				bottom: 	0;
-				left: 		0;
-				background: no-repeat 50% 50% / contain;
-				.loop(@n, @i: 1) when (@i =< @n) {
-					&.node-@{i}{
-						background-image: 	~"url(../assets/images/map-china-@{i}.png)";
-						animation-delay: 	( (@i - 1) * 10s / 9 );
-					}
-					.loop(@n, (@i + 1));
-				}
-				.loop(10);
-			}
-		}
-		.line{
-			text-shadow: 0 -1px 0 #fff, 0 1px 0 #fff;
-		}
-	}
-	
 	
 	
 	
@@ -293,6 +256,77 @@
 					}
 				}
 			}
+		}
+	}
+	
+
+	
+	.timeline-world{
+		.line{
+			height: 	360px !important;
+			margin-top:	-180px;
+			dl{
+				height: 	180px !important;
+				&.up{
+					padding-top: 	15px;
+				}
+				dd{
+					font-size: 	15px;
+				}
+				&.image{
+					padding-left: 	95px;
+					background: 	~"no-repeat 0 0 / contain";
+					&.image-1980{
+						background-image: url(../assets/images/timeline-world/1980.png);
+					}
+					&.image-1983{
+						background-image: url(../assets/images/timeline-world/1983.png);
+					}
+					&.image-1991{
+						background-image: url(../assets/images/timeline-world/1991.png);
+					}
+					&.image-2005{
+						background-image: url(../assets/images/timeline-world/2005.png);
+					}
+					&.image-2006{
+						background-image: url(../assets/images/timeline-world/2006.png);
+					}
+					&.image-2011{
+						background-image: url(../assets/images/timeline-world/2011.png);
+					}
+				}
+			}
+		}
+	}
+	
+	.timeline-china{
+		.map{
+			position: 	absolute;
+			top: 		0;
+			left: 		0;
+			width: 		100%;
+			height: 	100%;
+			background: url(../assets/images/map-china-ebebeb.png) no-repeat 50% 50% / contain;
+			z-index: 	1;
+			.node{
+				position: 	absolute;
+				top: 		0;
+				right: 		0;
+				bottom: 	0;
+				left: 		0;
+				background: no-repeat 50% 50% / contain;
+				.loop(@n, @i: 1) when (@i =< @n) {
+					&.node-@{i}{
+						background-image: 	~"url(../assets/images/map-china-@{i}.png)";
+						animation-delay: 	( (@i - 1) * 10s / 9 );
+					}
+					.loop(@n, (@i + 1));
+				}
+				.loop(10);
+			}
+		}
+		.line{
+			text-shadow: 0 -1px 0 #fff, 0 1px 0 #fff;
 		}
 	}
 }

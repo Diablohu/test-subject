@@ -257,6 +257,7 @@ main{
 	bottom: 	-20px;
 	right: 		0;
 	background: transparent;
+	text-align: center;
 	&:hover{
 		background-color: hsl(348, 43%, 44%);
 		color: 		#fff;
@@ -264,9 +265,25 @@ main{
 }
 
 button.nextscene{
-	padding-right: 	2em;
-	background: 	~"url(../assets/images/circle-right.svg) no-repeat calc(100% - 10px) 50% / contain";
-	background-size: 	auto 50%;
+	//padding-right: 	2em;
+	//background: 	~"url(../assets/images/circle-right.svg) no-repeat calc(100% - 10px) 50% / contain";
+	//background-size: 	auto 50%;
+	border-radius: 50%;
+	font-size: 	30px;
+	color: 		@color_accent;
+	padding: 	0;
+	border-width:2px;
+	width: 		35px;
+	height: 	35px;
+	&:before{
+		content: 	'»';
+		line-height:0;
+		position: 	absolute;
+		top: 		45%;
+		left: 		0;
+		width: 		100%;
+		text-align: center;
+	}
 }
 
 
