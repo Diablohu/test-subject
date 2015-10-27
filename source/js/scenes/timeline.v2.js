@@ -1,9 +1,11 @@
 /* global scenes */
 /* global Q */
 
-function _timeline_init($container, deferred){
+function _timeline_init($container, $line, deferred){
+	/*
 	function containerScrolling(){
 		requestAnimationFrame(function(){
+			//console.log($line.css('transform'))
 			//if( $container[0].scrollWidth - $container.width() <= $container.scrollLeft() + 50 ){
 			if( $container[0].scrollWidth <= $container.width() + 50 ){
 				deferred.resolve()
@@ -12,16 +14,26 @@ function _timeline_init($container, deferred){
 		})
 	}
 	containerScrolling()
+	*/
+	
+	var x
 	
 	var iScroll = new IScroll($container[0], {
 		scrollX:	true,
 		scrollY:	false,
-		momentum:	false
+		momentum:	false,
+		probeType:	3
+	})
+	iScroll.on('scroll', function(){
+		x = this.x
 	})
 	
 	$container.hammer().bind('panmove', function(e){
-		if( $body.hasClass('is-ready-nextscene') && e.gesture.deltaX < 0 && $container[0].scrollWidth <= $container.width() + 50 ){
+		if( e.gesture.deltaX < 0
+			&& 0 - x >= $line.width() - $container.width() ){
+			deferred.resolve()
 			//console.log($container[0].scrollWidth, $container.width())
+		}else if($body.hasClass('is-ready-nextscene') && e.gesture.deltaX > 0 && x > 0){
 		}else{
 			gPan = false
 		}
@@ -108,7 +120,7 @@ scenes.timeline = function($scene){
 					.addClass('up important')
 					.appendTo($line)
 			
-			_timeline_init($container, deferred)
+			_timeline_init($container, $line, deferred)
 			
 			return deferred.promise
 		})
@@ -215,7 +227,7 @@ scenes.timeline2 = function($scene){
 					.addClass('up important long')
 					.appendTo($line)
 			
-			_timeline_init($container, deferred)
+			_timeline_init($container, $line, deferred)
 
 			return deferred.promise
 		})
