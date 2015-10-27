@@ -21,7 +21,7 @@ function _timeline_init($container, $line, deferred){
 	var iScroll = new IScroll($container[0], {
 		scrollX:	true,
 		scrollY:	false,
-		momentum:	false,
+		//momentum:	false,
 		probeType:	3
 	})
 	iScroll.on('scroll', function(){
