@@ -5,7 +5,7 @@ scenes.end = function($scene){
 	var promise_chain 	= Q.fcall(function(){})
 		,container = $('<div/>').prependTo($scene)
 		
-	$('<h2/>').html('未来十年，<br />期待与你共同走过。').prependTo(container)
+	$('<h2/>').html('　未来十年，<br />　期待与你共同走过。').prependTo(container)
 	$('<p class="center animated fadeInUp"/>')
 		.append(
 			$('<a/>',{
