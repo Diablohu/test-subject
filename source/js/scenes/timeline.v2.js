@@ -4,7 +4,8 @@
 function _timeline_init($container, deferred){
 	function containerScrolling(){
 		requestAnimationFrame(function(){
-			if( $container[0].scrollWidth - $container.width() <= $container.scrollLeft() + 50 ){
+			//if( $container[0].scrollWidth - $container.width() <= $container.scrollLeft() + 50 ){
+			if( $container[0].scrollWidth <= $container.width() + 50 ){
 				deferred.resolve()
 			}
 			containerScrolling()
@@ -19,7 +20,11 @@ function _timeline_init($container, deferred){
 	})
 	
 	$container.hammer().bind('panmove', function(e){
-		gPan = false
+		if( $body.hasClass('is-ready-nextscene') && e.gesture.deltaX < 0 && $container[0].scrollWidth <= $container.width() + 50 ){
+			//console.log($container[0].scrollWidth, $container.width())
+		}else{
+			gPan = false
+		}
 	}).bind('panend pancancel', function(e){
 		setTimeout(function(){
 			gPan = true
