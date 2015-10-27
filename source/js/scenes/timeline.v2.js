@@ -12,13 +12,11 @@ function _timeline_init($container, deferred){
 	}
 	containerScrolling()
 	
-	/*
 	var iScroll = new IScroll($container[0], {
 		scrollX:	true,
 		scrollY:	false,
 		momentum:	false
 	})
-	*/
 	
 	$container.hammer().bind('panmove', function(e){
 		gPan = false
