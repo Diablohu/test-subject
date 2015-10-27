@@ -54,8 +54,10 @@ window.onload = (function(){
 				&& parseFloat($loader.css('opacity')) === 0
 			){
 				$loader.remove()
+				$logo = null
 			}
 		})
+		var $logo = $loader.children('.logo')
 	
 	// next scene button
 		var $nextscene = $main.find('button.nextscene')
@@ -122,6 +124,8 @@ window.onload = (function(){
 						+ ' '
 						+ Math.abs(e.gesture.deltaX) + 'px)')*/
 				scene_el_cur.css('transform', 'translateX('+e.gesture.deltaX+'px)')
+				if( $logo )
+					$logo.css('transform', 'translateX('+e.gesture.deltaX+'px)')
 			}).bind('panend pancancel', function(e){
 				if( !gPan || !$body.hasClass('is-ready-nextscene') )
 					return 

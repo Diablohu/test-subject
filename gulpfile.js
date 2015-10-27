@@ -36,6 +36,7 @@ gulp.task('job-2015-09-muji_v2-js', function(){
 			'./source/js/base.js',
 			'./source/js/main.v2.js',
 
+			'./source/js/scenes/entry.js',
 			'./source/js/scenes/photos.v2.js',
 			'./source/js/scenes/timeline.v2.js',
 			//'./source/js/scenes/ad.js',
