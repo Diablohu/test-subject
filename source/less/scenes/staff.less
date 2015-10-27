@@ -39,6 +39,14 @@
 			margin-left: 1em;
 		}
 
+		.loop(@n, @i: 1) when (@i =< @n) {
+			&.member-@{i}{
+				animation-delay: 	( @i * 0.25s );
+			}
+			.loop(@n, (@i + 1));
+		}
+		.loop(4);
+
 		@media screen and (orientation:landscape) {
 			width: 		50%;
 			height: 	50%;

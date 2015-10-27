@@ -1,5 +1,5 @@
 .scene[data-scene-name="recruit"]{
-	.requiments{
+	.requirements{
 		margin-bottom: 	2em;
 		p{
 			position: 	relative;
@@ -7,6 +7,13 @@
 			display: 	block;
 			margin: 	.25em 0;
 		}
+		.loop(@n, @i: 1) when (@i =< @n) {
+			.requirement-@{i}{
+				animation-delay: 	( @i * 0.25s );
+			}
+			.loop(@n, (@i + 1));
+		}
+		.loop(3);
 	}
 	
 	.route{

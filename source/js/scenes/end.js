@@ -3,8 +3,9 @@
 
 scenes.end = function($scene){
 	var promise_chain 	= Q.fcall(function(){})
-	
-	$('<h2/>').html('未来十年，期待与你共同走过。').prependTo($scene)
+		,container = $('<div/>').prependTo($scene)
+		
+	$('<h2/>').html('未来十年，期待与你共同走过。').prependTo(container)
 	$('<p class="center animated fadeInUp"/>')
 		.append(
 			$('<a/>',{
@@ -13,7 +14,7 @@ scenes.end = function($scene){
 				'target':	'_blank',
 				'html':		'点击了解更多'
 			})
-		).appendTo($scene)
+		).appendTo(container)
 
 	// 开始异步函数链
 		promise_chain

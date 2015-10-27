@@ -62,13 +62,11 @@ scenes.staff = function($scene){
 	
 	
 	members.forEach(function(member, index){
-		promise_chain = promise_chain.then(function(){
-			return Q.sleep(250,function(){appendMember(index)})
-		})
+		appendMember(index)
 	})
 	
 	promise_chain = promise_chain.then(function(){
-			return Q.sleep(1000)
+			return Q.sleep(1000 + (members.length - 1) * 250)
 		}).done(function(){
 			$body.trigger('scenefinish')
 		})

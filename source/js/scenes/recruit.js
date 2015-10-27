@@ -8,27 +8,21 @@ scenes.recruit = function($scene){
 			'坦率热情的你，',
 			'体贴细致的你。'
 		]
-		,container = $('<div class="requiments"/>').appendTo($scene)
+		,container = $('<div class="requirements"/>').appendTo($scene)
 	
 	$('<h2/>').html('我们需要').prependTo($scene)
 	
-	
-	
 	reqs.forEach(function(req, index){
-		promise_chain = promise_chain.then(function(){
-			return Q.sleep(250,function(){
-				$('<p class="requiment animated fadeInLeft"/>')
-					.html(req)
-					.appendTo(container)
-			})
-		})
+		$('<p class="requirement requirement-'+(index+1)+' animated fadeInLeft"/>')
+			.html(req)
+			.appendTo(container)
 	})
 
 	// 开始异步函数链
 		promise_chain = promise_chain
 		
 		.then(function(){
-			return Q.sleep(1250, function(){
+			return Q.sleep(1250 + (250 * reqs.length), function(){
 				$('<h3 class="animated fadeIn"/>').html('我们为你准备了广阔的晋升平台').appendTo($scene)
 			})
 		})
