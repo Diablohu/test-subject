@@ -31,6 +31,7 @@ gulp.task('job-2015-09-muji_v2-js', function(){
 			'./source/js/library/jquery-2.1.4.js',
 			'./node_modules/hammerjs/hammer.js',
 			'./node_modules/jquery-hammerjs/jquery.hammer.js',
+			'./node_modules/iscroll/build/iscroll-lite.js',
 			
 			'./source/js/base.js',
 			'./source/js/main.v2.js',

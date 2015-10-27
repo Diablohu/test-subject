@@ -1,6 +1,33 @@
 /* global scenes */
 /* global Q */
 
+function _timeline_init($container, deferred){
+	function containerScrolling(){
+		requestAnimationFrame(function(){
+			if( $container[0].scrollWidth - $container.width() <= $container.scrollLeft() + 50 ){
+				deferred.resolve()
+			}
+			containerScrolling()
+		})
+	}
+	containerScrolling()
+	
+	var iScroll = new IScroll($container[0], {
+		scrollX:	true,
+		scrollY:	false,
+		momentum:	false
+	})
+	
+	$container.hammer().bind('panmove panend pancancel', function(e){
+		gPan = false
+	}).bind('panend pancancel', function(e){
+		gPan = false
+		setTimeout(function(){
+			gPan = true
+		}, 10)
+	})
+}
+
 scenes.timeline = function($scene){
 	var promise_chain 	= Q.fcall(function(){})
 		,timelineEl = function(year, month, title, content){
@@ -29,16 +56,6 @@ scenes.timeline = function($scene){
 			var $container = $('<div class="line-container animated fadeIn"/>').appendTo($subscene)
 				,$line = $('<div class="line"/>').appendTo($container)
 				,deferred = Q.defer()
-
-			function containerScrolling(){
-				requestAnimationFrame(function(){
-					if( $container[0].scrollWidth - $container.width() <= $container.scrollLeft() + 50 ){
-						deferred.resolve()
-					}
-					containerScrolling()
-				})
-			}
-			containerScrolling()
 
 			// timeline
 				timelineEl(1980, null, '', '“无印良品”品牌推出')
@@ -87,6 +104,8 @@ scenes.timeline = function($scene){
 					.addClass('up important')
 					.appendTo($line)
 			
+			_timeline_init($container, deferred)
+			
 			return deferred.promise
 		})
 		
@@ -124,16 +143,6 @@ scenes.timeline2 = function($scene){
 				,$map = $('<div class="map animated fadeIn"/>').appendTo($china)
 				,$container = $('<div class="line-container animated fadeIn"/>').appendTo($china)
 				,$line = $('<div class="line"/>').appendTo($container)
-
-			function containerScrolling(){
-				requestAnimationFrame(function(){
-					if( $container[0].scrollWidth - $container.width() <= $container.scrollLeft() + 50 ){
-						deferred.resolve()
-					}
-					containerScrolling()
-				})
-			}
-			containerScrolling()
 			
 			// map nodes
 				for( let i=1; i<10; i++){
@@ -201,6 +210,8 @@ scenes.timeline2 = function($scene){
 				timelineEl(2015, '5月', '无印良品中国10周年', 'MUJI passport上线<br /><br />通过这款APP，消费者可以累计积分，感受到全新的购物体验。')
 					.addClass('up important long')
 					.appendTo($line)
+			
+			_timeline_init($container, deferred)
 
 			return deferred.promise
 		})
