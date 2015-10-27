@@ -61,8 +61,14 @@ window.onload = (function(){
 	
 	// next scene button
 		var $nextscene = $main.find('button.nextscene')
-		$nextscene.on('click', function(){
-			$body.trigger('scenenext')
+		$nextscene.on({
+			'click': function(){
+				$body.trigger('scenenext')
+			},
+			'animationend webkitAnimationEnd': function(e){
+				if( e.currentTarget == e.target && !$nextscene.hasClass('in') )
+					$nextscene.addClass('in')
+			}
 		})
 
 	// bind custom events
@@ -77,6 +83,7 @@ window.onload = (function(){
 				
 				scene_el_cur = scene_els.eq(scenenumber-1)
 				$body.trigger('scenechangecancel')
+				$nextscene.removeClass('in')
 				
 				// run specific scene function
 					if( scenes[ scene_name[scenenumber-1] ] )

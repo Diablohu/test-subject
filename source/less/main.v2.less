@@ -269,20 +269,28 @@ button.nextscene{
 	//background: 	~"url(../assets/images/circle-right.svg) no-repeat calc(100% - 10px) 50% / contain";
 	//background-size: 	auto 50%;
 	border-radius: 50%;
-	font-size: 	30px;
+	font-size: 	40px;
 	color: 		@color_accent;
 	padding: 	0;
-	border-width:2px;
+	border-width:0;
 	width: 		35px;
 	height: 	35px;
+	right: 		auto;
+	left: 		50%;
+	margin-left:-17.5px;
 	&:before{
-		content: 	'»';
+		content: 	'«';
 		line-height:0;
 		position: 	absolute;
 		top: 		45%;
 		left: 		0;
 		width: 		100%;
 		text-align: center;
+	}
+	&.in{
+		opacity: 	1;
+		animation: 	nextscene 2.5s infinite;
+		animation-delay: .5s;
 	}
 }
 
@@ -333,4 +341,30 @@ button.nextscene{
   100% {
     transform: translateX(100px) rotate(45deg) scale(0);
   }
+}
+
+
+
+
+@keyframes nextscene{
+	0%{
+		opacity: 	1;
+		transform: 	translateX(0);
+	}
+	40%{
+		opacity: 	0;
+		transform: 	translateX(-50%);
+	}
+	41%{
+		opacity: 	0;
+		transform: 	translateX(50%);
+	}
+	80%{
+		opacity: 	1;
+		transform: 	translateX(0);
+	}
+	100%{
+		opacity: 	1;
+		transform: 	translateX(0);
+	}
 }
