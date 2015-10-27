@@ -1,5 +1,12 @@
 
 .scene[data-scene-name="summary"]{
+	&>div{
+		position: 	absolute;
+		top: 		50%;
+		width: 		100%;
+		transform: 	translateY(-50%);
+	}
+	
 	h2, p{
 		width: 		100%;
 		text-align: center;
@@ -7,10 +14,12 @@
 	
 	h2{
 		font-weight:lighter;
-		font-size: 	48px;
-		line-height:1.1em;
+		font-size: 	40px;
+		font-size: 	7vh;
+		line-height:1.2em;
 		margin-top: 0;
 		letter-spacing: 0.15em;
+		white-space:nowrap;
 		span{
 			display: 	block;
 		}
@@ -18,6 +27,32 @@
 	
 	.final{
 		font-size: 	24px;
+	}
+	
+	h2:first-of-type{
+		@delay-1: 	300ms;
+		span{
+			animation-delay: 	@delay-1;
+		}
+		span+span{
+			animation-delay: 	(@delay-1 + 750ms);
+		}
+		span+span+span{
+			animation-delay: 	(@delay-1 + 750ms * 2);
+		}
+		
+		&+h2{
+			span{
+				animation-delay: 	(@delay-1 + 750ms * 3 + 1250);
+			}
+			span+span{
+				animation-delay: 	(@delay-1 + 750ms * 3 + 1250 + 750);
+			}
+			
+			&+.final{
+				animation-delay: 	(@delay-1 + 750ms * 3 + 1250 + 750 + 1250);
+			}
+		}
 	}
 	
 	p.center{
