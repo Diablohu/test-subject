@@ -3,7 +3,7 @@
 
 scenes.summary = function($scene){
 	var promise_chain 	= Q.fcall(function(){})
-		,$title = $('<h2><span class="animated fadeInUp">梦，</span></h2>').appendTo($scene)
+		,$title = $('<h2><span class="animated fadeIn">梦，</span></h2>').appendTo($scene)
 		,$title2
 
 	// 开始异步函数链
@@ -18,7 +18,7 @@ scenes.summary = function($scene){
 		})
 		
 		.then(function(){
-			return $('<span class="animated fadeInUp">成长，</span>').appendTo($title)
+			return $('<span class="animated fadeIn">成长，</span>').appendTo($title)
 		})
 
 		.then(function(){
@@ -30,7 +30,7 @@ scenes.summary = function($scene){
 		})
 		
 		.then(function(){
-			return $('<br /><span class="animated fadeInUp">在路上。</span>').appendTo($title)
+			return $('<br /><span class="animated fadeIn">在路上。</span>').appendTo($title)
 		})
 
 		.then(function(){
@@ -42,7 +42,7 @@ scenes.summary = function($scene){
 		})
 		
 		.then(function(){
-			$title2 = $('<h2><span class="animated fadeInUp">十年无印，</span></h2>').appendTo($scene)
+			$title2 = $('<h2><span class="animated fadeIn">十年无印，</span></h2>').appendTo($scene)
 			return $title2
 		})
 
@@ -55,7 +55,7 @@ scenes.summary = function($scene){
 		})
 		
 		.then(function(){
-			return $('<br /><span class="animated fadeInUp">良人招募。</span>').appendTo($title2)
+			return $('<br /><span class="animated fadeIn">良人招募。</span>').appendTo($title2)
 		})
 
 		.then(function(){
@@ -67,7 +67,7 @@ scenes.summary = function($scene){
 		})
 		
 		.then(function(){
-			return $('<p class="final animated fadeInUp">储备干部 全国招聘</p>').appendTo($scene)
+			return $('<p class="final animated fadeIn">储备干部 全国招聘</p>').appendTo($scene)
 		})
 		
 		/*
@@ -79,7 +79,7 @@ scenes.summary = function($scene){
 			return deferred.promise
 		})
 		.then(function(){
-			return $('<p class="center animated fadeInUp"/>')
+			return $('<p class="center animated fadeIn"/>')
 				.append(
 					$('<a/>',{
 						'class':	'nextscene',
