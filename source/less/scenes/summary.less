@@ -1,5 +1,10 @@
 
 .scene[data-scene-name="summary"]{
+	h2, p{
+		width: 		100%;
+		text-align: center;
+	}
+	
 	h2{
 		font-weight:lighter;
 		font-size: 	48px;
@@ -7,7 +12,7 @@
 		margin-top: 0;
 		letter-spacing: 0.15em;
 		span{
-			display: 	inline-block;
+			display: 	block;
 		}
 	}
 	
@@ -35,6 +40,13 @@
 	@media screen and (orientation:landscape){
 		br{
 			display: 	none;
+		}
+		h2{
+			font-size: 	36px;
+			font-size: 	10vh;
+		}
+		.final{
+			font-size: 	6vh;
 		}
 	}
 }

@@ -30,7 +30,7 @@ scenes.summary = function($scene){
 		})
 		
 		.then(function(){
-			return $('<br /><span class="animated fadeIn">在路上。</span>').appendTo($title)
+			return $('<span class="animated fadeIn">在路上。</span>').appendTo($title)
 		})
 
 		.then(function(){
@@ -55,7 +55,7 @@ scenes.summary = function($scene){
 		})
 		
 		.then(function(){
-			return $('<br /><span class="animated fadeIn">良人招募。</span>').appendTo($title2)
+			return $('<span class="animated fadeIn">良人招募。</span>').appendTo($title2)
 		})
 
 		.then(function(){
