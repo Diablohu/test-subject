@@ -110,7 +110,7 @@ window.onload = (function(){
 	
 		// event listeners (hammer.js)
 			$body.hammer().bind('panmove', function(e){
-				console.log(e)
+				//console.log(e)
 				if( !gPan || !$body.hasClass('is-ready-nextscene') )
 					return 
 				/*$main.css('left', 'calc(50% '

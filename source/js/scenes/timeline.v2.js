@@ -12,16 +12,17 @@ function _timeline_init($container, deferred){
 	}
 	containerScrolling()
 	
+	/*
 	var iScroll = new IScroll($container[0], {
 		scrollX:	true,
 		scrollY:	false,
 		momentum:	false
 	})
+	*/
 	
-	$container.hammer().bind('panmove panend pancancel', function(e){
+	$container.hammer().bind('panmove', function(e){
 		gPan = false
 	}).bind('panend pancancel', function(e){
-		gPan = false
 		setTimeout(function(){
 			gPan = true
 		}, 10)
