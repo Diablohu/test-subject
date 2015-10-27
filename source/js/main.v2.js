@@ -103,6 +103,8 @@ window.onload = (function(){
 			},
 			'scenechangecancel': function(){
 				scene_el_cur.css('transform', '')
+				if( $logo )
+					$logo.css('transform', '')
 				gPan = true
 				setTimeout(function(){
 					gPan = true
