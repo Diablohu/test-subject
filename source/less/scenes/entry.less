@@ -7,4 +7,12 @@
 		font-size: 	5.5vmin;
 		white-space:nowrap;
 	}
+		
+	@media screen and (orientation:portrait) and (min-height: 960px),
+		screen and (orientation:landscape) and (min-width: 960px) {
+		&>div{
+			top: 		60%;
+			font-size: 	36px;
+		}
+	}
 }
