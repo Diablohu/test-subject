@@ -1,6 +1,39 @@
 .scene[data-scene-name="recruit"]{
+	h2, h3{
+		margin-top: 0;
+	}
+	h2{
+		font-size: 	8vmin;
+	}
+	h3{
+		font-size: 	5vmin;
+		letter-spacing: 0;
+	}
+	p{
+		font-size: 	5vmin;
+	}
+	
+	&>div{
+		margin-top: 	9vh;
+		
+		@media screen and (orientation:portrait) and (max-height: 500px) {
+			margin-top: 5vh;
+		}
+		@media screen and (orientation:portrait) and (min-height: 501px) and (max-height: 600px) {
+			margin-top: 6vh;
+		}
+	
+		@media screen and (orientation:landscape) {
+			margin-top: 2.5vh;
+			width: 		45%;
+			float: 		left;
+			&+div{
+				width: 	55%;
+			}
+		}
+	}
+	
 	.requirements{
-		margin-bottom: 	2em;
 		p{
 			position: 	relative;
 			width: 		100%;
@@ -17,18 +50,25 @@
 	}
 	
 	.route{
-		display: 	block;
-		overflow: 	auto;
-		height: 	200px;
-		margin: 	-3em 0 0 0;
-		mask: 		linear-gradient(to right, transparent, #000 20px, #000 ~"calc(100% - 20px)", transparent);
-		padding: 	0 10px;
-		img{
+		p{
 			display: 	block;
-			width: 		auto;
-			height: 	auto;
-			max-height: 100%;
-			min-height: 100%;
+			overflow: 	auto;
+			height: 	180px;
+			margin: 	0;
+			//mask: 		linear-gradient(to right, transparent, #000 20px, #000 ~"calc(100% - 20px)", transparent);
+			padding: 	0 10px;
+			img{
+				display: 	block;
+				width: 		auto;
+				height: 	auto;
+				max-height: 100%;
+				min-height: 100%;
+				margin: 	0 auto;
+			}
+	
+			@media screen and (orientation:portrait) and (max-height: 600px) {
+				height: 	35vh;
+			}
 		}
 	}
 }

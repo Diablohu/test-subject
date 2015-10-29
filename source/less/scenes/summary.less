@@ -16,7 +16,8 @@
 		font-weight:lighter;
 		font-size: 	40px;
 		font-size: 	7vh;
-		line-height:1.2em;
+		line-height:1.45em;
+		//line-height:12vh;
 		margin-top: 0;
 		letter-spacing: 0.15em;
 		white-space:nowrap;
@@ -25,32 +26,40 @@
 		}
 	}
 	
+	h2+h2{
+		margin-top: 10vh;
+	}
+	
 	.final{
 		font-size: 	24px;
+		margin: 	0;
+		line-height:0;
 	}
 	
 	h2:first-of-type{
-		@delay-1: 	300ms;
+		@delay-1: 		300ms;
+		@delay-between: 850ms;
+		@delay-between2:500ms;
 		span{
 			animation-delay: 	@delay-1;
 		}
 		span+span{
-			animation-delay: 	(@delay-1 + 750ms);
+			animation-delay: 	(@delay-1 + @delay-between);
 		}
 		span+span+span{
-			animation-delay: 	(@delay-1 + 750ms * 2);
+			animation-delay: 	(@delay-1 + (@delay-between * 2));
 		}
 		
 		&+h2{
 			span{
-				animation-delay: 	(@delay-1 + 750ms * 3 + 1250);
+				animation-delay: 	(@delay-1 + (@delay-between * 3) + @delay-between2);
 			}
 			span+span{
-				animation-delay: 	(@delay-1 + 750ms * 3 + 1250 + 750);
+				animation-delay: 	(@delay-1 + (@delay-between * 3) + @delay-between2 + @delay-between);
 			}
 			
 			&+.final{
-				animation-delay: 	(@delay-1 + 750ms * 3 + 1250 + 750 + 1250);
+				animation-delay: 	(@delay-1 + (@delay-between * 3) + @delay-between2 + @delay-between);
 			}
 		}
 	}

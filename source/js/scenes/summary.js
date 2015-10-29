@@ -2,8 +2,7 @@
 /* global Q */
 
 scenes.summary = function($scene){
-	var promise_chain 	= Q.fcall(function(){})
-		,container = $('<div/>')
+	var container = $('<div/>')
 						.html(`
 						<h2>
 							<span class="animated fadeInUp">　梦，</span>
@@ -17,26 +16,13 @@ scenes.summary = function($scene){
 						`)
 						.appendTo($scene)
 	
-	$('<p class="final animated fadeIn">储备干部 全国招聘</p>')
+	//$('<p class="final animated fadeIn">储备干部 全国招聘</p>')
+	$('<p class="final animated fadeIn"></p>')
 		.on('animationend webkitAnimationEnd', function(e){
 			if( e.currentTarget == e.target )
-				setTimeout(function(){
+				//setTimeout(function(){
 					$body.trigger('scenefinish')
-				}, 500)
+				//}, 500)
 		})
 		.appendTo(container)
-	
-	/*
-
-	// 开始异步函数链
-		promise_chain
-
-		.then(function(){
-			return Q.sleep(1000 + 750 + 750 + 1250 + 750 + 1000 + 1000)
-		})
-		
-		.done(function(){
-			$body.trigger('scenefinish')
-		})
-		*/
 }

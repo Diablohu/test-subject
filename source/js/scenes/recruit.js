@@ -8,30 +8,39 @@ scenes.recruit = function($scene){
 			'坦率热情的你，',
 			'体贴细致的你。'
 		]
-		,container = $('<div class="requirements"/>').appendTo($scene)
+		,container2
 	
-	$('<h2/>').html('我们需要').prependTo($scene)
-	
-	reqs.forEach(function(req, index){
-		$('<p class="requirement requirement-'+(index+1)+' animated fadeInLeft"/>')
-			.html(req)
-			.appendTo(container)
-	})
+	$('<h2/>').html('储备干部 全国招聘').prependTo($scene)
 
 	// 开始异步函数链
 		promise_chain = promise_chain
 		
 		.then(function(){
+			return Q.sleep(1000, function(){
+				var container = $('<div class="requirements"/>').appendTo($scene)
+				
+				$('<h3 class="animated fadeIn"/>').html('我们需要').appendTo(container)
+				
+				reqs.forEach(function(req, index){
+					$('<p class="requirement requirement-'+(index+1)+' animated fadeInLeft"/>')
+						.html(req)
+						.appendTo(container)
+				})
+			})
+		})
+		
+		.then(function(){
 			return Q.sleep(1250 + (250 * reqs.length), function(){
-				$('<h3 class="animated fadeIn"/>').html('我们为你准备了广阔的晋升平台').appendTo($scene)
+				container2 = $('<div class="route"/>').appendTo($scene)
+				$('<h3 class="animated fadeIn"/>').html('我们为你准备了广阔的晋升平台').appendTo(container2)
 			})
 		})
 		
 		.then(function(){
 			return Q.sleep(1000, function(){
-				var imgcontainer = $('<p class="route animated fadeIn"/>')
-						.append($('<img src="assets/images/recruit-route.png"/>'))
-						.appendTo($scene)
+				var imgcontainer = $('<p class="animated fadeIn"/>')
+						.append($('<img src="assets/images/recruit-route-2.png"/>'))
+						.appendTo(container2)
 					,imgcontainerXStart = 0
 				imgcontainer.hammer().bind('panstart', function(e){
 					gPan = false
