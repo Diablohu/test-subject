@@ -38,6 +38,10 @@ scenes.recruit = function($scene){
 		
 		.then(function(){
 			return Q.sleep(1000, function(){
+				$('<p class="animated fadeIn"/>')
+						.append($('<img src="assets/images/recruit-route-2-fix.png"/>'))
+						.appendTo(container2)
+				/*
 				var imgcontainer = $('<p class="animated fadeIn"/>')
 						.append($('<img src="assets/images/recruit-route-2-fix.png"/>'))
 						.appendTo(container2)
@@ -54,6 +58,7 @@ scenes.recruit = function($scene){
 						console.log('img panend')
 					}, 10)
 				})
+				*/
 			})
 		})
 		
