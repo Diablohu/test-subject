@@ -29,7 +29,7 @@ scenes.photos = function($scene){
 							'animation-delay':		delay + 's',
 							'-webkit-animation-delay':		delay + 's'
 						})
-						.append($('<span/>').css('background-image', 'url(assets/images/scene-photos-'+y+'-'+x+'.jpg)'))
+						.append($('<span/>').css('background-image', 'url(assets/images/scene-photos/'+y+'-'+x+'.jpg)'))
 						.appendTo($scene)
 					}
 				}

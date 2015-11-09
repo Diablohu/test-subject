@@ -2,6 +2,8 @@
 /* global Q */
 
 scenes.staff = function($scene){
+	$scene.empty();
+
 	var promise_chain 	= Q.fcall(function(){})
 		,members = [
 			{
