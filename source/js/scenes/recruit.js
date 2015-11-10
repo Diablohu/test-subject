@@ -39,7 +39,7 @@ scenes.recruit = function($scene){
 		.then(function(){
 			return Q.sleep(1000, function(){
 				$('<p class="animated fadeIn"/>')
-						.append($('<img src="assets/images/recruit-route-2-fix.png"/>'))
+						.append($('<img src="assets/images/recruit-route-3.png"/>'))
 						.appendTo(container2)
 				/*
 				var imgcontainer = $('<p class="animated fadeIn"/>')
